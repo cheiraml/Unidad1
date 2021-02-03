@@ -18,6 +18,7 @@ namespace aplicacionpc
             bool continua1;
             bool continua2;
             bool continua3;
+
             do
                 {
                         try
@@ -33,7 +34,7 @@ namespace aplicacionpc
                         continua1 = true;
                     }
                 }while (continua1);
-                Console.ReadKey();
+                //Console.ReadKey()
             do
             {
                 try
@@ -50,27 +51,30 @@ namespace aplicacionpc
                     continua2 = true;
                 }
             } while (continua2);
-            Console.ReadKey();
+            // Console.ReadKey();
             do
             {
-                try
-                {
+                
                     continua3 = false;
                     Console.Write("Ingrese + o -, segun lo que prefiera:");
                     operador = Console.ReadLine();
+                if(operador=="+" || operador == "-")// |bits ||booleano
+                {
+                    //Console.ReadKey();
+                    //Aquí envío por el puerto serial el dato 
+                    Console.WriteLine("Envío por el serial");
+                    //Aquí espero a que me llegue la respuesta
+                    Console.WriteLine("OK dato desde arduino");
+                }
+                else
+                {
+                    Console.Write("Operacion invalida");
+                    continua3 = true;
 
                 }
-                catch (FormatException e)
-                {
-                    Console.Write("Debe un string.");
-                    continua3 = true;
-                }
+
             } while (continua3);
-            Console.ReadKey();
-            //Aquí envío por el puerto serial el dato 
-          Console.WriteLine("Envío por el serial");
-                //Aquí espero a que me llegue la respuesta
-                Console.WriteLine("OK dato desde arduino");
+            
             
         }
         
